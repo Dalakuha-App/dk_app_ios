@@ -217,7 +217,7 @@ class LogOutButton extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return CupertinoButton(
       color: CupertinoColors.destructiveRed,
-      child: const Text('Log out'),
+      child: const Text('Log outs'),
       onPressed: () {
         // You should do something with the result of the action sheet prompt
         // in a real app but this is just a demo.

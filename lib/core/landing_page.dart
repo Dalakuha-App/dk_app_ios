@@ -3,9 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart';
-// import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../widgets.dart';
+import '../buttons/be_a_member.dart';
+import '../buttons/login.dart';
 
 class LandingPage extends StatefulWidget {
   static const title = 'Dala-Kuha';
@@ -79,19 +81,21 @@ class _LandingPageState extends State<LandingPage> {
   //   );
   // }
 
-  // void _togglePlatform() {
-  //   if (defaultTargetPlatform == TargetPlatform.iOS) {
-  //     debugDefaultTargetPlatformOverride = TargetPlatform.android;
-  //   } else {
-  //     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-  //   }
+  void _togglePlatform() {
+    // ignore: avoid_print
+    print("Toggling platform");
+    if (defaultTargetPlatform == TargetPlatform.iOS) {
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    } else {
+      debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+    }
 
-  //   // This rebuilds the application. This should obviously never be
-  //   // done in a real app but it's done here since this app
-  //   // unrealistically toggles the current platform for demonstration
-  //   // purposes.
-  //   WidgetsBinding.instance.reassembleApplication();
-  // }
+    // This rebuilds the application. This should obviously never be
+    // done in a real app but it's done here since this app
+    // unrealistically toggles the current platform for demonstration
+    // purposes.
+    WidgetsBinding.instance.reassembleApplication();
+  }
 
   // ===========================================================================
   // Non-shared code below because:
@@ -113,38 +117,135 @@ class _LandingPageState extends State<LandingPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: null /* add child content here */,
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(120.0),
+                  child: Column(children: [
+                    const Text(
+                      "Welcome to",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/dala_logo_white.png',
+                      height: 120,
+                      width: 120,
+                    ),
+                    const Text(
+                      "Ride and earn",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 5, 70, 122),
+                          fontStyle: FontStyle.italic),
+                    ),
+                  ]),
+                ),
+              ],
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 100),
+                  child: Column(children: [
+                    BeAMemberButton(),
+                    LoginButton(),
+                  ]),
+                ),
+              ],
+            ),
+          ],
+        ), /* add child content here */
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _togglePlatform,
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
       ),
     );
   }
 
   Widget _buildIos(BuildContext context) {
-    return const CustomScrollView(
-        // slivers: [
-        //   CupertinoSliverNavigationBar(
-        //     trailing: CupertinoButton(
-        //       padding: EdgeInsets.zero,
-        //       onPressed: _togglePlatform,
-        //       child: const Icon(CupertinoIcons.shuffle),
-        //     ),
-        //   ),
-        //   CupertinoSliverRefreshControl(
-        //     onRefresh: _refreshData,
-        //   ),
-        //   SliverSafeArea(
-        //     top: false,
-        //     sliver: SliverPadding(
-        //       padding: const EdgeInsets.symmetric(vertical: 12),
-        //       sliver: SliverList(
-        //         delegate: SliverChildBuilderDelegate(
-        //           _listBuilder,
-        //           childCount: _itemsLength,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ],
-        );
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(120.0),
+                  child: Column(children: [
+                    const Text(
+                      "Welcome to",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/dala_logo_white.png',
+                      height: 120,
+                      width: 120,
+                    ),
+                    const Text(
+                      "Ride and earn",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 5, 70, 122),
+                          fontStyle: FontStyle.italic),
+                    ),
+                  ]),
+                ),
+              ],
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 100),
+                  child: Column(children: [
+                    BeAMemberButton(),
+                  ]),
+                ),
+              ],
+            ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Column(children: [
+                    LoginButton(),
+                  ]),
+                ),
+              ],
+            ),
+          ],
+        ), /* add child content here */
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _togglePlatform,
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
+    );
   }
 
   @override
