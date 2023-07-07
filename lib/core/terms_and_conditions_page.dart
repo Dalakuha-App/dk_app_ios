@@ -5,7 +5,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../settings_tab.dart';
+import '../core/registration_page.dart';
 import '../widgets.dart';
 
 class TermsAndConditionsPage extends StatelessWidget {
@@ -16,15 +16,16 @@ class TermsAndConditionsPage extends StatelessWidget {
   const TermsAndConditionsPage({super.key});
 
   Widget _buildBody(BuildContext context) {
-    return const Expanded(
-        child: SingleChildScrollView(
-      child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(24.0),
-          child: Column(
-            children: [
-              Text(
-                """ A.Please read these terms and conditions (these “Terms”) carefully. Once accepted, they shall constitute the contract ("Contract”) between you and us that governs your access and use of the Dala-Kuha mobile application (“application”) and your contractual relations to us in general, which shall comprise:
+    return const Column(children: [
+      Expanded(
+          child: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(24.0),
+            child: Column(
+              children: [
+                Text(
+                  """ A.Please read these terms and conditions (these “Terms”) carefully. Once accepted, they shall constitute the contract ("Contract”) between you and us that governs your access and use of the Dala-Kuha mobile application (“application”) and your contractual relations to us in general, which shall comprise:
             \ni. Contractual relations arising from your use of the Dala-Kuha mobile application provided by us or our affiliates including those concerning the storage, sharing and processing of files, materials, data, or other content;
             \nii. For Dala-Kuha business partners, agents, contractors, or sub-contractors; contractual relations arising from our separate agreements as may be enforced, executed, complied, or performed through the use of the Dala-Kuha mobile application;
             \niii.Contractual relations arising from any support, maintenance or other services we provide in relation to the Dala-Kuha mobile application;
@@ -49,21 +50,22 @@ class TermsAndConditionsPage extends StatelessWidget {
         \n
         G. This Privacy Policy covers how DALA-KUHA SERVICES INC. (“Dala-Kuha”, “we”, “us” or “our”) collects, uses, shares, retains and protects your personal information. It also tells you what steps you can take if you want us to change how we use your personal information, or if you want us to stop using your personal information.
 """,
-                style: TextStyle(
-                  fontSize: 16,
-                  decoration: TextDecoration.none,
+                  style: TextStyle(
+                    fontSize: 16,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
-              ),
 
-              // Expanded(
-              //   child: Container(),
-              // ),
-              LogOutButton(),
-            ],
+                // Expanded(
+                //   child: Container(),
+                // ),
+                LogOutButton(),
+              ],
+            ),
           ),
         ),
-      ),
-    ));
+      ))
+    ]);
   }
 
   // ===========================================================================
@@ -95,9 +97,9 @@ class TermsAndConditionsPage extends StatelessWidget {
             // of the tab bar and everything.
             Navigator.of(context, rootNavigator: true).push<void>(
               CupertinoPageRoute(
-                title: SettingsTab.title,
+                title: RegistrationPage.title,
                 fullscreenDialog: true,
-                builder: (context) => const SettingsTab(),
+                builder: (context) => const RegistrationPage(),
               ),
             );
           },

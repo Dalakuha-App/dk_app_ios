@@ -59,7 +59,7 @@ dev_dependencies:
 #flutter pub get
 #flutter pub run flutter_native_splash:create
 flutter_native_splash:
-  color: "#000000"
+  color: "#FCD116"
   image: assets/dala_logo_white.png
 # The following section is specific to Flutter packages.
 flutter:

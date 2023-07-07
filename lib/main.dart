@@ -88,7 +88,6 @@ class _HomePageState extends State<HomePage> {
   Widget _buildIosHomePage(BuildContext context) {
     return LandingPage(
       key: songsTabKey,
-      androidDrawer: _AndroidDrawer(),
     );
   }
 

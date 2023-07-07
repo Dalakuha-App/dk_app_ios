@@ -3,26 +3,26 @@
 // found in the LICENSE file.
 
 // import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../components/registration/phone_number_form.dart';
 import '../widgets.dart';
-import '../components/landing_page/be_a_member.dart';
-import '../components/landing_page/login.dart';
 
-class LandingPage extends StatefulWidget {
-  static const title = 'Dala-Kuha';
+class RegistrationPage extends StatefulWidget {
+  static const title = 'Registration';
   // static const androidIcon = Icon(Icons.music_note);
   // static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const LandingPage({super.key, this.androidDrawer});
+  const RegistrationPage({super.key, this.androidDrawer});
 
   final Widget? androidDrawer;
 
   @override
-  State<LandingPage> createState() => _LandingPageState();
+  State<RegistrationPage> createState() => _RegistrationPageState();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _RegistrationPageState extends State<RegistrationPage> {
   // static const _itemsLength = 50;
 
   // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -105,19 +105,57 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ],
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 100),
-                  child: Column(children: [
-                    BeAMemberButton(),
-                    LoginButton(),
-                  ]),
-                ),
-              ],
-            ),
           ],
+        ), /* add child content here */
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _togglePlatform,
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 120.0),
+                    child: Column(children: [
+                      Image.asset(
+                        'assets/dala_logo_white.png',
+                        height: 150,
+                        width: 150,
+                      ),
+                    ]),
+                  ),
+                ],
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Column(children: [
+                      RegistrationForm(),
+                    ]),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ), /* add child content here */
       ),
       floatingActionButton: FloatingActionButton(
@@ -130,76 +168,7 @@ class _LandingPageState extends State<LandingPage> {
 
   Widget _buildIos(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/background.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(120.0),
-                  child: Column(children: [
-                    const Text(
-                      "Welcome to",
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Image.asset(
-                      'assets/dala_logo_white.png',
-                      height: 120,
-                      width: 120,
-                    ),
-                    const Text(
-                      "Ride and earn",
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Color.fromARGB(255, 5, 70, 122),
-                          fontStyle: FontStyle.italic),
-                    ),
-                  ]),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 100),
-                  child: Column(children: [
-                    BeAMemberButton(),
-                  ]),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Column(children: [
-                    LoginButton(),
-                  ]),
-                ),
-              ],
-            ),
-          ],
-        ), /* add child content here */
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _togglePlatform,
-        backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
-      ),
+      body: _buildBody(context),
     );
   }
 
