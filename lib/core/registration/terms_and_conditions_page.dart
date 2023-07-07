@@ -5,8 +5,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../core/registration_page.dart';
-import '../widgets.dart';
+import '../../widgets.dart';
+import '../registration/registration_page.dart';
 
 class TermsAndConditionsPage extends StatelessWidget {
   static const title = 'Terms and Conditions';
@@ -51,9 +51,9 @@ class TermsAndConditionsPage extends StatelessWidget {
         G. This Privacy Policy covers how DALA-KUHA SERVICES INC. (“Dala-Kuha”, “we”, “us” or “our”) collects, uses, shares, retains and protects your personal information. It also tells you what steps you can take if you want us to change how we use your personal information, or if you want us to stop using your personal information.
 """,
                   style: TextStyle(
-                    fontSize: 16,
-                    decoration: TextDecoration.none,
-                  ),
+                      fontSize: 16,
+                      decoration: TextDecoration.none,
+                      fontFamily: 'Raleway'),
                 ),
 
                 // Expanded(

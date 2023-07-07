@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../../core/registration/otp_page.dart';
+import '../../core/registration/names_pin_page.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
 
-class RegistrationForm extends StatelessWidget {
+class OTPForm extends StatelessWidget {
   // static const _logoutMessage = Text(
   //     "You can't actually log out! This is just a demo of how alerts work.");
 
-  const RegistrationForm({super.key});
+  const OTPForm({super.key});
 
   // ===========================================================================
   // Non-shared code below because this tab shows different interfaces. On
@@ -64,46 +63,59 @@ class MyCustomFormState extends State<MyCustomForm> {
           TextFormField(
             decoration: const InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Enter your mobile number',
+              hintText: 'Enter verification code',
             ),
             // The validator receives the text that the user has entered.
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Invalid mobile number';
+                return 'Invalid verification code';
               }
               return null;
             },
           ),
           Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: SizedBox(
-                  width: 300,
-                  child: CupertinoButton(
-                    color: CupertinoColors.destructiveRed,
-                    child: const Text('CONTINUE'),
-                    onPressed: () async {
-                      setState(() {
-                        _isPressed = !_isPressed;
-                      });
-                      if (_formKey.currentState!.validate()) {
-                        // If the form is valid, display a snackbar. In the real world,
-                        // you'd often call a server or save the information in a database.
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: SizedBox(
+              width: 300,
+              child: CupertinoButton(
+                color: CupertinoColors.activeGreen,
+                child: const Text('VERIFY'),
+                onPressed: () async {
+                  setState(() {
+                    _isPressed = !_isPressed;
+                  });
+                  if (_formKey.currentState!.validate()) {
+                    // If the form is valid, display a snackbar. In the real world,
+                    // you'd often call a server or save the information in a database.
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Processing Data')),
+                    );
 
-                        await Future.delayed(const Duration(seconds: 1));
-                        // ignore: use_build_context_synchronously
-                        Navigator.of(context, rootNavigator: true).push<void>(
-                          CupertinoPageRoute(
-                            title: ProfileTab.title,
-                            fullscreenDialog: true,
-                            builder: (context) => const OTPPage(),
-                          ),
-                        );
-                      }
-                    },
-                  ))),
+                    await Future.delayed(const Duration(seconds: 1));
+                    // ignore: use_build_context_synchronously
+                    Navigator.of(context, rootNavigator: true).push<void>(
+                      CupertinoPageRoute(
+                        title: NamesPinPage.title,
+                        fullscreenDialog: true,
+                        builder: (context) => const NamesPinPage(),
+                      ),
+                    );
+                  }
+                },
+              ),
+            ),
+          ),
+          const Center(
+            child: Text(
+              "Resend Code",
+              textDirection: TextDirection.ltr,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.redAccent,
+              ),
+            ),
+          ),
         ],
       ),
     );

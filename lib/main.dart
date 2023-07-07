@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'news_tab.dart';
 import 'profile_tab.dart';
@@ -28,6 +29,9 @@ class DKApp extends StatelessWidget {
         // Use the green theme for Material widgets.
         primarySwatch: Colors.yellow,
         useMaterial3: true,
+        textTheme: GoogleFonts.ralewayTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       darkTheme: ThemeData.dark(),
       builder: (context, child) {

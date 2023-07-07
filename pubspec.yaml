@@ -39,6 +39,7 @@ dependencies:
   english_words: ^4.0.0
   flutter_lorem: ^2.0.0
   flutter_native_splash: ^2.3.1
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,9 @@ flutter:
   assets:
   - assets/background.png
   - assets/dala_logo_white.png
+  - assets/profile_holder.png
+  - assets/cashin.png
+  - assets/cashout.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -99,5 +103,16 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+fonts:
+    - family: Raleway
+      fonts:
+        - asset: fonts/Raleway-Regular.ttf
+        - asset: fonts/Raleway-Italic.ttf
+          style: italic
+    - family: RobotoMono
+      fonts:
+        - asset: fonts/RobotoMono-Regular.ttf
+        - asset: fonts/RobotoMono-Bold.ttf
+          weight: 700  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

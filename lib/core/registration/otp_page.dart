@@ -6,23 +6,23 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../components/registration/phone_number_form.dart';
-import '../widgets.dart';
+import '../../components/registration/otp_form.dart';
+import '../../widgets.dart';
 
-class RegistrationPage extends StatefulWidget {
+class OTPPage extends StatefulWidget {
   static const title = 'Registration';
   // static const androidIcon = Icon(Icons.music_note);
   // static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const RegistrationPage({super.key, this.androidDrawer});
+  const OTPPage({super.key, this.androidDrawer});
 
   final Widget? androidDrawer;
 
   @override
-  State<RegistrationPage> createState() => _RegistrationPageState();
+  State<OTPPage> createState() => _OTPPageState();
 }
 
-class _RegistrationPageState extends State<RegistrationPage> {
+class _OTPPageState extends State<OTPPage> {
   // static const _itemsLength = 50;
 
   // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -149,7 +149,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: Column(children: [
-                      RegistrationForm(),
+                      OTPForm(),
                     ]),
                   ),
                 ],

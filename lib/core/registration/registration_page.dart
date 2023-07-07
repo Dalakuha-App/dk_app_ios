@@ -6,8 +6,8 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../components/registration/phone_number_form.dart';
-import '../widgets.dart';
+import '../../components/registration/phone_number_form.dart';
+import '../../widgets.dart';
 
 class RegistrationPage extends StatefulWidget {
   static const title = 'Registration';

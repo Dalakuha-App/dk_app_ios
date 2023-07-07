@@ -6,23 +6,23 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../components/registration/phone_number_form.dart';
-import '../widgets.dart';
+import '../../components/registration/names_pin_form.dart';
+import '../../widgets.dart';
 
-class RegistrationPage extends StatefulWidget {
+class NamesPinPage extends StatefulWidget {
   static const title = 'Registration';
   // static const androidIcon = Icon(Icons.music_note);
   // static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const RegistrationPage({super.key, this.androidDrawer});
+  const NamesPinPage({super.key, this.androidDrawer});
 
   final Widget? androidDrawer;
 
   @override
-  State<RegistrationPage> createState() => _RegistrationPageState();
+  State<NamesPinPage> createState() => _NamesPinPageState();
 }
 
-class _RegistrationPageState extends State<RegistrationPage> {
+class _NamesPinPageState extends State<NamesPinPage> {
   // static const _itemsLength = 50;
 
   // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -125,32 +125,38 @@ class _RegistrationPageState extends State<RegistrationPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: SingleChildScrollView(
+        child: const SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 120.0),
+                    padding: EdgeInsets.only(top: 100.0),
                     child: Column(children: [
-                      Image.asset(
-                        'assets/dala_logo_white.png',
-                        height: 150,
-                        width: 150,
+                      Text(
+                        "Oops! Let us know who you are.",
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontStyle: FontStyle.italic),
                       ),
                     ]),
                   ),
                 ],
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Column(children: [
-                      RegistrationForm(),
-                    ]),
+                  SizedBox(
+                    width: 300,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Column(children: [
+                        NamesPinForm(),
+                      ]),
+                    ),
                   ),
                 ],
               ),

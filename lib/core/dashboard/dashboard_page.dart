@@ -3,26 +3,30 @@
 // found in the LICENSE file.
 
 // import 'package:flutter/cupertino.dart';
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../components/registration/phone_number_form.dart';
-import '../widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+// import '../../components/dashboard_page/card.dart';
+import '../../components/dashboard_page/action_buttons.dart';
+import '../../components/dashboard_page/card_regular.dart';
+import '../../components/landing_page/be_a_member.dart';
+import '../../components/landing_page/login.dart';
+import '../../widgets.dart';
 
-class RegistrationPage extends StatefulWidget {
-  static const title = 'Registration';
+class DashboardPage extends StatefulWidget {
+  static const title = 'Dala-Kuha';
   // static const androidIcon = Icon(Icons.music_note);
   // static const iosIcon = Icon(CupertinoIcons.music_note);
 
-  const RegistrationPage({super.key, this.androidDrawer});
+  const DashboardPage({super.key, this.androidDrawer});
 
   final Widget? androidDrawer;
 
   @override
-  State<RegistrationPage> createState() => _RegistrationPageState();
+  State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _RegistrationPageState extends State<RegistrationPage> {
+class _DashboardPageState extends State<DashboardPage> {
   // static const _itemsLength = 50;
 
   // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
@@ -105,57 +109,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ],
             ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 100),
+                  child: Column(children: [
+                    BeAMemberButton(),
+                    LoginButton(),
+                  ]),
+                ),
+              ],
+            ),
           ],
-        ), /* add child content here */
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _togglePlatform,
-        backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
-      ),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/background.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 120.0),
-                    child: Column(children: [
-                      Image.asset(
-                        'assets/dala_logo_white.png',
-                        height: 150,
-                        width: 150,
-                      ),
-                    ]),
-                  ),
-                ],
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Column(children: [
-                      RegistrationForm(),
-                    ]),
-                  ),
-                ],
-              ),
-            ],
-          ),
         ), /* add child content here */
       ),
       floatingActionButton: FloatingActionButton(
@@ -168,7 +134,82 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   Widget _buildIos(BuildContext context) {
     return Scaffold(
-      body: _buildBody(context),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Row(children: [
+                  GestureDetector(
+                      child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              image: const DecorationImage(
+                                  image:
+                                      AssetImage("assets/profile_holder.png"),
+                                  fit: BoxFit.cover),
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: const Color.fromRGBO(2, 2, 119, 1),
+                              ))),
+                      onTap: () {
+                        // ignore: avoid_print
+                        print("you clicked me");
+                      }),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Text(
+                      "John Doe \n +639091236789",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ]),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50),
+                    child:
+                        // DashboardCardRegular()
+                        Text(
+                      'Dala-Kuha helps you \nmove your funds.',
+                      style: GoogleFonts.raleway(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w700,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Column(children: [ActionButtons()]),
+              ),
+            ],
+          ),
+        ), /* add child content here */
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _togglePlatform,
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.navigation),
+      ),
     );
   }
 
