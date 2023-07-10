@@ -10,22 +10,11 @@ class ActionButtons extends StatelessWidget {
 
   const ActionButtons({super.key});
 
-  // ===========================================================================
-  // Non-shared code below because this tab shows different interfaces. On
-  // Android, it's showing an alert dialog with 2 buttons and on iOS,
-  // it's showing an action sheet with 3 choices.
-  //
-  // This is a design choice and you may want to do something different in your
-  // app.
-  // ===========================================================================
-
   Widget _buildAndroid(BuildContext context) {
     return ElevatedButton(
       child: const Text('LOGIN',
           style: TextStyle(color: Color.fromARGB(255, 2, 12, 116))),
       onPressed: () {
-        // You should do something with the result of the dialog prompt in a
-        // real app but this is just a demo.
         showDialog<void>(
           context: context,
           builder: (context) {

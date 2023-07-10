@@ -76,6 +76,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
   - assets/background.png
+  - assets/background_round.png
   - assets/dala_logo_white.png
   - assets/profile_holder.png
   - assets/cashin.png

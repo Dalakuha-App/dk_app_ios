@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'news_tab.dart';
 import 'profile_tab.dart';
 import 'settings_tab.dart';
-import 'songs_tab.dart';
 import 'widgets.dart';
 import '../core/landing_page.dart';
 
@@ -139,8 +138,8 @@ class _AndroidDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: SongsTab.androidIcon,
-            title: const Text(SongsTab.title),
+            leading: NewsTab.androidIcon,
+            title: const Text(NewsTab.title),
             onTap: () {
               Navigator.pop(context);
             },

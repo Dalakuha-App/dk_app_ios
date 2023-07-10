@@ -11,8 +11,6 @@ import '../components/landing_page/login.dart';
 
 class LandingPage extends StatefulWidget {
   static const title = 'Dala-Kuha';
-  // static const androidIcon = Icon(Icons.music_note);
-  // static const iosIcon = Icon(CupertinoIcons.music_note);
 
   const LandingPage({super.key, this.androidDrawer});
 
@@ -52,17 +50,6 @@ class _LandingPageState extends State<LandingPage> {
     WidgetsBinding.instance.reassembleApplication();
   }
 
-  // ===========================================================================
-  // Non-shared code below because:
-  // - Android and iOS have different scaffolds
-  // - There are different items in the app bar / nav bar
-  // - Android has a hamburger drawer, iOS has bottom tabs
-  // - The iOS nav bar is scrollable, Android is not
-  // - Pull-to-refresh works differently, and Android has a button to trigger it too
-  //
-  // And these are all design time choices that doesn't have a single 'right'
-  // answer.
-  // ===========================================================================
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       body: Container(

@@ -5,19 +5,7 @@ import '../../core/registration/names_pin_page.dart';
 import '../../widgets.dart';
 
 class OTPForm extends StatelessWidget {
-  // static const _logoutMessage = Text(
-  //     "You can't actually log out! This is just a demo of how alerts work.");
-
   const OTPForm({super.key});
-
-  // ===========================================================================
-  // Non-shared code below because this tab shows different interfaces. On
-  // Android, it's showing an alert dialog with 2 buttons and on iOS,
-  // it's showing an action sheet with 3 choices.
-  //
-  // This is a design choice and you may want to do something different in your
-  // app.
-  // ===========================================================================
 
   Widget _buildIos(BuildContext context) {
     return const SizedBox(width: 300, child: MyCustomForm());
